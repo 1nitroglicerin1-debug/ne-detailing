@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оклейка и защита кузова — NE Studio</title>
+<meta name="description" content="Оклейка автомобиля полиуретановой плёнкой PPF и винилом в Брянске. Зоны риска, полный кузов, глянец и мат. Тарифы, материалы, гарантии.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0C0D10;--surface:#15181E;--bronze:#C9A96E;--muted:#8E95A5;--nav:#A0A5B1}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{background:var(--bg);color:#EDEEF1;font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .nav-link{font-size:13.5px;color:var(--nav);transition:color .22s ease}
+  .nav-link:hover{color:#fff}
+  .nav-link.active{color:#fff}
+  .surface-card{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:16px;transition:all .3s ease}
+  .surface-card:hover{border-color:rgba(201,169,110,.4);transform:translateY(-4px)}
+  .photo-wrap{position:relative;overflow:hidden;aspect-ratio:16/10;background:#101216}
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1);filter:saturate(.92)}
+  .surface-card:hover .photo-wrap img{transform:scale(1.04)}
+  .hairline{height:1px;background:rgba(255,255,255,.09)}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .spec-row{border-bottom:1px solid rgba(255,255,255,.07)}
+  .spec-row:last-child{border-bottom:0}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="min-h-screen bg-[#0C0D10]">
+
+<header class="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0C0D10]/85 backdrop-blur-xl">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="h-[72px] flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 shrink-0">
+        <span class="w-9 h-9 rounded-lg grid place-items-center border border-white/10 bg-white/[0.04] text-[13px] font-semibold tracking-wider text-[#C9A96E]">NE</span>
+        <span class="leading-none">
+          <span class="block text-[12.5px] font-semibold tracking-[.22em] text-white">NE STUDIO</span>
+          <span class="block text-[9.5px] tracking-[.3em] text-[#8E95A5] mt-1">DETAILING</span>
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="protection.html" class="nav-link active">Оклейка и защита</a>
+        <a href="detailing.html" class="nav-link">Полировка и керамика</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <div class="flex items-center gap-4 lg:gap-6 shrink-0">
+        <a href="tel:+79621450949" class="hidden lg:block text-[13px] text-[#A0A5B1] hover:text-white transition-colors whitespace-nowrap">+7 962 145-09-49</a>
+        <a href="https://wa.me/79621450949?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B0%20%D0%B8%20%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0"
+           target="_blank" rel="noopener"
+           class="px-5 py-2.5 rounded-xl border border-[#C9A96E]/40 text-[13px] font-medium text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#0C0D10] transition whitespace-nowrap">Записаться</a>
+      </div>
+    </div>
+    <nav class="md:hidden flex items-center gap-5 overflow-x-auto pb-3 text-[12.5px]">
+      <a href="index.html" class="text-[#A0A5B1] whitespace-nowrap">Главная</a>
+      <a href="protection.html" class="text-white whitespace-nowrap">Оклейка и защита</a>
+      <a href="detailing.html" class="text-[#A0A5B1] whitespace-nowrap">Полировка и керамика</a>
+      <a href="index.html#contacts" class="text-[#A0A5B1] whitespace-nowrap">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+  <!-- ================= HERO ================= -->
+  <section class="pt-14 md:pt-20 pb-14 md:pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-xs text-[#C9A96E] px-3.5 py-1.5 rounded-full mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C9A96E]"></span>
+          Направление · Оклейка и защита
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.18] mb-5">
+          Защита кузова<br>
+          полиуретановой плёнкой<br>
+          <span class="text-[#C9A96E]">без компромиссов</span>
+        </h1>
+        <p class="text-[#8E95A5] text-base leading-relaxed mb-8 max-w-lg">
+          PPF-плёнки с самовосстанавливающимся слоем и винил для смены облика.
+          Оклеиваем зоны риска или кузов целиком в глянце и мате — с гарантией до 3 лет.
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <a href="https://wa.me/79621450949?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BE%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B8"
+             target="_blank" rel="noopener"
+             class="px-6 py-3.5 rounded-xl bg-[#C9A96E] text-[#0C0D10] hover:bg-[#B89758] font-semibold text-sm text-center transition">Рассчитать стоимость</a>
+          <a href="tel:+79621450949" class="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 text-sm font-medium text-center transition">Консультация мастера</a>
+        </div>
+        <div class="mt-10 border-t border-white/10 pt-5 flex flex-wrap items-center gap-x-8 gap-y-3 text-[13px] text-[#8E95A5]">
+          <span class="inline-flex items-center gap-2.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            г. Брянск, ул. Флотская, 111
+          </span>
+          <span class="inline-flex items-center gap-2.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            Ежедневно с 9:00 до 21:00
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="relative aspect-[4/5] max-h-[460px] rounded-3xl overflow-hidden border border-white/10 bg-[#15181E] w-full max-w-md mx-auto">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1000&q=80"
+               alt="Нанесение защитной плёнки на кузов автомобиля"
+               class="absolute inset-0 w-full h-full object-cover" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(12,13,16,.82) 0%,rgba(12,13,16,.1) 52%,transparent 80%)"></div>
+          <div class="absolute bottom-0 left-0 right-0 m-4 px-4 py-3 rounded-2xl border border-white/10 bg-[#0C0D10]/70 backdrop-blur-md">
+            <p class="text-[10.5px] tracking-[.2em] text-[#C9A96E] mb-1">PPF · ВИНИЛ</p>
+            <p class="text-[13px] font-medium text-white">Оклейка по лекалам производителя</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ТАРИФЫ ================= -->
+  <section id="tariffs" class="pb-16 md:pb-24">
+    <div class="mb-8 md:mb-10">
+      <p class="text-[11px] font-medium tracking-[.28em] text-[#C9A96E] mb-3">ТАРИФЫ</p>
+      <h2 class="text-2xl md:text-3xl font-semibold text-white tracking-tight">Программы оклейки</h2>
+      <p class="mt-2 text-sm text-[#8E95A5]">Цены указаны для автомобилей класса D. Итоговая стоимость — после осмотра.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+
+      <!-- Зоны риска -->
+      <div class="surface-card flex flex-col p-6">
+        <p class="text-[10.5px] tracking-[.2em] text-[#8E95A5] mb-3">ОПТИМАЛЬНО ДЛЯ ГОРОДА</p>
+        <h3 class="text-[17px] font-semibold text-white tracking-tight">Зоны риска</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Бампер, капот, крылья, зеркала и полосы под ручками.</p>
+        <div class="hairline my-5"></div>
+        <div class="flex items-baseline gap-1.5 mb-1">
+          <span class="text-[12px] text-[#8E95A5]">от</span>
+          <span class="text-[26px] font-semibold text-white tracking-tight">15 000 ₽</span>
+        </div>
+        <p class="text-[11.5px] text-[#6B7180] mb-5">Срок работ — 1–2 дня</p>
+        <ul class="space-y-2.5 text-[12.5px] text-[#8E95A5] leading-relaxed mb-6">
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>PPF 150 мкм, самовосстановление</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Заводские лекала, подгиб кромок</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Гарантия 2 года</li>
+        </ul>
+        <a href="https://wa.me/79621450949?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%97%D0%BE%D0%BD%D1%8B%20%D1%80%D0%B8%D1%81%D0%BA%D0%B0"
+           target="_blank" rel="noopener"
+           class="mt-auto py-2.5 px-4 rounded-lg border border-white/10 bg-white/[0.03] text-[12.5px] text-white text-center hover:border-[#C9A96E]/50 hover:text-[#C9A96E] transition">Записаться</a>
+      </div>
+
+      <!-- Полный кузов -->
+      <div class="surface-card flex flex-col p-6" style="border-color:rgba(201,169,110,.35)">
+        <p class="text-[10.5px] tracking-[.2em] text-[#C9A96E] mb-3">ВЫБОР КЛИЕНТОВ</p>
+        <h3 class="text-[17px] font-semibold text-white tracking-tight">Полный кузов</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Все наружные элементы кузова в едином покрытии.</p>
+        <div class="hairline my-5"></div>
+        <div class="flex items-baseline gap-1.5 mb-1">
+          <span class="text-[12px] text-[#8E95A5]">от</span>
+          <span class="text-[26px] font-semibold text-white tracking-tight">85 000 ₽</span>
+        </div>
+        <p class="text-[11.5px] text-[#6B7180] mb-5">Срок работ — 4–6 дней</p>
+        <ul class="space-y-2.5 text-[12.5px] text-[#8E95A5] leading-relaxed mb-6">
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>PPF 200 мкм, премиум-сегмент</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Бесшовная укладка, скрытые кромки</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Гарантия 3 года</li>
+        </ul>
+        <a href="https://wa.me/79621450949?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BA%D1%83%D0%B7%D0%BE%D0%B2"
+           target="_blank" rel="noopener"
+           class="mt-auto py-2.5 px-4 rounded-lg bg-[#C9A96E] text-[#0C0D10] hover:bg-[#B89758] font-semibold text-[12.5px] text-center transition">Записаться</a>
+      </div>
+
+      <!-- Глянец / Мат -->
+      <div class="surface-card flex flex-col p-6">
+        <p class="text-[10.5px] tracking-[.2em] text-[#8E95A5] mb-3">СМЕНА ОБЛИКА</p>
+        <h3 class="text-[17px] font-semibold text-white tracking-tight">Глянец / Мат</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Винил с изменением цвета или фактуры кузова.</p>
+        <div class="hairline my-5"></div>
+        <div class="flex items-baseline gap-1.5 mb-1">
+          <span class="text-[12px] text-[#8E95A5]">от</span>
+          <span class="text-[26px] font-semibold text-white tracking-tight">70 000 ₽</span>
+        </div>
+        <p class="text-[11.5px] text-[#6B7180] mb-5">Срок работ — 3–5 дней</p>
+        <ul class="space-y-2.5 text-[12.5px] text-[#8E95A5] leading-relaxed mb-6">
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Кастинг-плёнки глянец / сатин / мат</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Разбор элементов, аккуратные кромки</li>
+          <li class="flex gap-2.5"><span class="text-[#C9A96E]">—</span>Гарантия 2 года</li>
+        </ul>
+        <a href="https://wa.me/79621450949?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B0%20%D0%93%D0%BB%D1%8F%D0%BD%D0%B5%D1%86%20%2F%20%D0%9C%D0%B0%D1%82"
+           target="_blank" rel="noopener"
+           class="mt-auto py-2.5 px-4 rounded-lg border border-white/10 bg-white/[0.03] text-[12.5px] text-white text-center hover:border-[#C9A96E]/50 hover:text-[#C9A96E] transition">Записаться</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= МАТЕРИАЛЫ И ГАРАНТИИ ================= -->
+  <section id="materials" class="pb-16 md:pb-24">
+    <div class="mb-8 md:mb-10">
+      <p class="text-[11px] font-medium tracking-[.28em] text-[#C9A96E] mb-3">МАТЕРИАЛЫ</p>
+      <h2 class="text-2xl md:text-3xl font-semibold text-white tracking-tight">Сравнение плёнок и гарантий</h2>
+      <p class="mt-2 text-sm text-[#8E95A5]">Работаем только с официально поставляемыми материалами.</p>
+    </div>
+
+    <div class="bg-[#15181E] border border-white/[0.08] rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[680px] text-left border-collapse">
+          <thead>
+            <tr class="bg-white/[0.02]">
+              <th class="px-5 py-4 text-[10.5px] uppercase tracking-[.18em] text-[#8E95A5] font-medium">Материал</th>
+              <th class="px-5 py-4 text-[10.5px] uppercase tracking-[.18em] text-[#8E95A5] font-medium">Тип</th>
+              <th class="px-5 py-4 text-[10.5px] uppercase tracking-[.18em] text-[#8E95A5] font-medium">Толщина</th>
+              <th class="px-5 py-4 text-[10.5px] uppercase tracking-[.18em] text-[#8E95A5] font-medium">Эффект</th>
+              <th class="px-5 py-4 text-[10.5px] uppercase tracking-[.18em] text-[#8E95A5] font-medium">Гарантия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="spec-row">
+              <td class="px-5 py-4 text-[13.5px] text-white font-medium">PPF Standard</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Полиуретан</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">150 мкм</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Глянец, самовосстановление</td>
+              <td class="px-5 py-4 text-[13px] text-[#C9A96E]">2 года</td>
+            </tr>
+            <tr class="spec-row">
+              <td class="px-5 py-4 text-[13.5px] text-white font-medium">PPF Premium</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Полиуретан</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">200 мкм</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Глянец / мат, антижёлтый слой</td>
+              <td class="px-5 py-4 text-[13px] text-[#C9A96E]">3 года</td>
+            </tr>
+            <tr class="spec-row">
+              <td class="px-5 py-4 text-[13.5px] text-white font-medium">Vinyl Cast</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Литой винил</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">90–120 мкм</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Глянец / сатин / мат</td>
+              <td class="px-5 py-4 text-[13px] text-[#C9A96E]">2 года</td>
+            </tr>
+            <tr class="spec-row">
+              <td class="px-5 py-4 text-[13.5px] text-white font-medium">Антигравийная зона</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Полиуретан</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">100 мкм</td>
+              <td class="px-5 py-4 text-[13px] text-[#8E95A5]">Прозрачная, для порогов</td>
+              <td class="px-5 py-4 text-[13px] text-[#C9A96E]">1 год</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+      <div class="bg-[#15181E] border border-white/[0.07] rounded-2xl p-6 hover:-translate-y-1 hover:border-[#C9A96E]/40 transition-all duration-300">
+        <h3 class="text-[14.5px] font-semibold text-white tracking-tight">Подготовка поверхности</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Обезжиривание и обеспыливание в чистой зоне перед нанесением.</p>
+      </div>
+      <div class="bg-[#15181E] border border-white/[0.07] rounded-2xl p-6 hover:-translate-y-1 hover:border-[#C9A96E]/40 transition-all duration-300">
+        <h3 class="text-[14.5px] font-semibold text-white tracking-tight">Что покрывает гарантия</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Отслоение, пожелтение и дефекты монтажа — устраняем бесплатно.</p>
+      </div>
+      <div class="bg-[#15181E] border border-white/[0.07] rounded-2xl p-6 hover:-translate-y-1 hover:border-[#C9A96E]/40 transition-all duration-300">
+        <h3 class="text-[14.5px] font-semibold text-white tracking-tight">Уход после оклейки</h3>
+        <p class="mt-2 text-[13px] leading-relaxed text-[#8E95A5]">Выдаём памятку по мойке и бесплатную первую инспекцию через месяц.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="pb-16 md:pb-24">
+    <div class="bg-[#15181E] border border-white/[0.08] rounded-2xl p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 class="text-xl md:text-2xl font-semibold text-white tracking-tight leading-snug">Подберём плёнку под ваш автомобиль</h2>
+        <p class="mt-3 text-sm text-[#8E95A5] leading-relaxed max-w-md">Осмотр занимает 20 минут: покажем образцы, объясним разницу материалов и назовём точную цену.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 md:justify-end">
+        <a href="https://wa.me/79621450949?text=%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D1%83"
+           target="_blank" rel="noopener"
+           class="px-6 py-3.5 rounded-xl bg-[#C9A96E] text-[#0C0D10] hover:bg-[#B89758] font-semibold text-sm text-center transition">Записаться</a>
+        <a href="detailing.html" class="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 text-sm font-medium text-center transition">Полировка и керамика</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-white/[0.08] py-8 md:py-10">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-center md:text-left">
+        <p class="text-[11px] font-semibold tracking-[.22em] text-white">NE STUDIO</p>
+        <p class="mt-2 text-[11px] text-[#6B7180]">© <span id="yr"></span> NE Studio · Брянск</p>
+      </div>
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="protection.html" class="nav-link active">Оклейка и защита</a>
+        <a href="detailing.html" class="nav-link">Полировка и керамика</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <a href="tel:+79621450949" class="text-[12.5px] text-[#A0A5B1] hover:text-white transition-colors">+7 962 145-09-49</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('#tariffs .surface-card, #materials .bg-\\[\\#15181E\\]').forEach(el => {
+    el.classList.add('reveal'); io.observe(el);
+  });
+</script>
+</body>
+</html>
