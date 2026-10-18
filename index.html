@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NE Detailing — премиальный детейлинг в Брянске</title>
+<meta name="description" content="NE Detailing — детейлинг-студия в Брянске. Полировка, бронеплёнка, керамика 9H, химчистка салона.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1115;
+    --card:#151922;
+    --border:#1f242d;
+    --amber:#f5b544;
+    --amber-2:#d99a2b;
+    --gold-1:#f7d488;
+    --gold-2:#e0a83a;
+    --muted:#8b93a1;
+  }
+  *{-webkit-tap-highlight-color:transparent}
+  body{
+    background:var(--bg);
+    color:#e8ebf0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .bg-grid{
+    position:fixed; inset:0; z-index:-2;
+    background-image:
+      radial-gradient(900px 500px at 50% -10%, rgba(245,181,68,.14), transparent 60%),
+      linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size:100% 100%, 46px 46px, 46px 46px;
+    mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 95%);
+  }
+  .bg-glow{
+    position:fixed; z-index:-1; pointer-events:none;
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle, rgba(224,168,58,.20), transparent 65%);
+    filter:blur(60px);
+  }
+  .glow-1{top:-180px; left:50%; transform:translateX(-50%)}
+  .glow-2{bottom:6%; left:-220px; opacity:.55}
+  .glass{
+    background:rgba(15,17,21,.72);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    border-bottom:1px solid var(--border);
+  }
+  .card{
+    background:linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+    border:1px solid var(--border);
+    border-radius:20px;
+    transition:transform .35s cubic-bezier(.2,.7,.3,1), border-color .35s, box-shadow .35s;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(245,181,68,.42);
+    box-shadow:0 18px 40px -22px rgba(245,181,68,.5);
+  }
+  .grad-text{
+    background:linear-gradient(120deg,var(--gold-1),var(--gold-2) 55%,#f5b544);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg,var(--gold-1),var(--gold-2));
+    color:#17140c; font-weight:600;
+    box-shadow:0 12px 30px -14px rgba(224,168,58,.85);
+    transition:transform .25s, box-shadow .25s, filter .25s;
+  }
+  .btn-gold:hover{transform:translateY(-2px); filter:brightness(1.05); box-shadow:0 18px 38px -14px rgba(224,168,58,.95)}
+  .btn-gold:active{transform:translateY(0) scale(.985)}
+  .btn-ghost{
+    border:1px solid var(--border); background:rgba(255,255,255,.03);
+    transition:border-color .25s, background .25s, transform .25s;
+  }
+  .btn-ghost:hover{border-color:rgba(245,181,68,.45); background:rgba(245,181,68,.07); transform:translateY(-2px)}
+  .chip{
+    display:inline-flex; align-items:center; gap:.4rem;
+    border:1px solid var(--border); background:rgba(255,255,255,.035);
+    border-radius:999px; padding:.3rem .7rem; font-size:.72rem; color:var(--muted);
+  }
+  .price-line{height:1px; background:linear-gradient(90deg, transparent, var(--border) 15%, var(--border) 85%, transparent)}
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1; transform:none}
+  .logo-mark{
+    background:linear-gradient(135deg,var(--gold-1),var(--amber-2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .shine{position:relative; overflow:hidden}
+  .shine::after{
+    content:""; position:absolute; top:0; left:-120%; width:60%; height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
+    transform:skewX(-20deg); animation:shine 5.5s ease-in-out infinite;
+  }
+  @keyframes shine{0%,70%{left:-120%}100%{left:160%}}
+  @keyframes pulseDot{0%,100%{opacity:1; transform:scale(1)}50%{opacity:.35; transform:scale(.82)}}
+  .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;animation:pulseDot 2s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .float{animation:float 5.5s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important; transition:none!important}
+    .reveal{opacity:1; transform:none}
+  }
+</style>
+</head>
+<body class="min-h-screen">
+<div class="bg-grid"></div>
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+
+<!-- ================= ШАПКА ================= -->
+<header class="glass sticky top-0 z-50">
+  <div class="mx-auto max-w-md px-4 h-16 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2.5">
+      <span class="w-9 h-9 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 font-extrabold text-[15px] logo-mark">NE</span>
+      <span class="leading-none">
+        <span class="block text-[13px] font-bold tracking-[.18em] text-white">DETAILING</span>
+        <span class="block text-[9.5px] tracking-[.34em] text-[#8b93a1] mt-0.5">NE STUDIO</span>
+      </span>
+    </a>
+    <a href="https://wa.me/79621450949" target="_blank" rel="noopener"
+       class="btn-gold text-[12px] px-4 py-2 rounded-xl whitespace-nowrap shine">Записаться</a>
+  </div>
+</header>
+
+<main class="mx-auto max-w-md px-4">
+
+  <!-- ================= HERO ================= -->
+  <section id="hero" class="pt-10 pb-12 text-center">
+    <span class="chip mx-auto"><span class="dot"></span> Приём заявок ежедневно 9:00–21:00</span>
+
+    <h1 class="mt-6 text-[34px] leading-[1.12] font-extrabold tracking-tight">
+      Премиальный уход<br>за вашим <span class="grad-text">автомобилем</span>
+    </h1>
+
+    <p class="mt-4 text-[15px] leading-relaxed text-[#8b93a1]">
+      детейлинг-студия полного цикла в Брянске. Восстанавливаем блеск, защищаем кузов
+      и делаем салон идеальным.
+    </p>
+
+    <div class="mt-7 flex flex-col gap-3">
+      <a href="https://wa.me/79621450949?text=%D0%A0%D0%B0%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%E0%B4%B8%20NE%20Detailing" target="_blank" rel="noopener"
+         class="btn-gold shine rounded-2xl py-4 text-[15px] font-semibold tracking-wide">
+        Рассчитать стоимость в WhatsApp
+      </a>
+      <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-3.5 text-[14px] font-medium text-[#e8ebf0]">
+        Позвонить: +7 962 145-09-49
+      </a>
+    </div>
+
+    <div class="mt-6 chip justify-center">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      г. Брянск, ул. Флотская, 111
+    </div>
+  </section>
+
+  <!-- ================= УСЛУГИ ================= -->
+  <section id="services" class="py-4">
+    <h2 class="text-[11px] font-semibold tracking-[.28em] text-[#8b93a1] text-center">УСЛУГИ</h2>
+
+    <div class="mt-6 space-y-3">
+      <article class="card p-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="text-[16.5px] font-semibold">Полировка кузова</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Удаление царапин, восстановление оптической прозрачности лака, идеальная гладкость.</p>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 text-[17px]">✦</span>
+        </div>
+        <div class="price-line my-4"></div>
+        <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">7 000 ₽</span></p>
+      </article>
+
+      <article class="card p-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="text-[16.5px] font-semibold">Бронеплёнка</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Полиуретановое покрытие, защита от сколов, царапин и реагентов на срок до 3 лет.</p>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 text-[17px]">🛡</span>
+        </div>
+        <div class="price-line my-4"></div>
+        <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">15 000 ₽</span></p>
+      </article>
+
+      <article class="card p-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="text-[16.5px] font-semibold">Керамика 9H</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Жёсткость 9H, гидрофобный эффект, глубокий глянец и лёгкость мойки.</p>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 text-[17px]">◆</span>
+        </div>
+        <div class="price-line my-4"></div>
+        <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">8 000 ₽</span></p>
+      </article>
+
+      <article class="card p-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h3 class="text-[16.5px] font-semibold">Химчистка салона</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Глубокая очистка сидений, ковров, потолка и дверей. Удаление запахов и пятен.</p>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 text-[17px]">🧽</span>
+        </div>
+        <div class="price-line my-4"></div>
+        <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">5 000 ₽</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= ПРЕИМУЩЕСТВА ================= -->
+  <section id="why" class="py-14">
+    <h2 class="text-[11px] font-semibold tracking-[.28em] text-[#8b93a1] text-center">ПОЧЕМУ МЫ</h2>
+    <div class="mt-6 space-y-3">
+      <div class="card p-5 flex gap-4">
+        <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">🧪</span>
+        <div>
+          <h3 class="text-[15.5px] font-semibold">Премиальная автохимия</h3>
+          <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Профессиональные составы от ведущих брендов, безопасные для лака и ткани.</p>
+        </div>
+      </div>
+      <div class="card p-5 flex gap-4">
+        <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">📜</span>
+        <div>
+          <h3 class="text-[15.5px] font-semibold">Гарантия на работы</h3>
+          <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">До 24 месяцев на покрытия. Если результат не устроит — переделаем бесплатно.</p>
+        </div>
+      </div>
+      <div class="card p-5 flex gap-4">
+        <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">🎓</span>
+        <div>
+          <h3 class="text-[15.5px] font-semibold">Сертификаты мастеров</h3>
+          <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Каждый специалист проходит обучение и подтверждает квалификацию дипломами.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= КОНТАКТЫ ================= -->
+  <section id="contacts" class="py-6 pb-14">
+    <div class="card p-7 text-center relative overflow-hidden">
+      <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-56 h-56 bg-glow glow-1" style="filter:blur(50px);opacity:.5"></div>
+      <div class="relative">
+        <h2 class="text-[22px] font-extrabold leading-tight">Готовы вернуть<br>вашему авто <span class="grad-text">блеск?</span></h2>
+        <p class="mt-3 text-[13.5px] text-[#8b93a1] leading-relaxed">Приедьте на осмотр — оценим состояние кузова и назовём точную стоимость.</p>
+        <div class="mt-6 flex flex-col gap-3">
+          <a href="https://wa.me/79621450949?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D0%B2%20NE%20Detailing" target="_blank" rel="noopener"
+             class="btn-gold shine rounded-2xl py-4 text-[15px] font-semibold">Написать в WhatsApp</a>
+          <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-3.5 text-[14px] font-medium">Позвонить</a>
+        </div>
+        <div class="mt-6 pt-5 border-t border-[#1f242d] space-y-1.5">
+          <p class="text-[13px] text-[#8b93a1]">г. Брянск, ул. Флотская, 111</p>
+          <p class="text-[13px] text-[#8b93a1]">Ежедневно 9:00–21:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= ПОДВАЛ ================= -->
+<footer class="border-t border-[#1f242d] py-8">
+  <div class="mx-auto max-w-md px-4 text-center">
+    <p class="text-[11px] font-bold tracking-[.22em] text-[#8b93a1]">NE DETAILING</p>
+    <p class="mt-2 text-[11px] text-[#5b6270]">© <span id="yr"></span> NE Detailing · Брянск</p>
+  </div>
+</footer>
+
+<!-- Плавающая кнопка WhatsApp -->
+<a href="https://wa.me/79621450949" target="_blank" rel="noopener" aria-label="WhatsApp"
+   class="fixed bottom-5 right-4 z-50 w-14 h-14 rounded-full grid place-items-center float"
+   style="background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 14px 34px -12px rgba(37,211,102,.75)">
+  <svg width="27" height="27" viewBox="0 0 24 24" fill="#fff"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.18 4.22-9.4 9.42-9.4 2.51 0 4.87.98 6.65 2.76a9.35 9.35 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.41 9.4ZM20.52 3.45A11.75 11.75 0 0 0 12.04 0C5.5 0 .17 5.33.17 11.87c0 2.09.55 4.13 1.59 5.93L.07 24l6.35-1.66a11.85 11.85 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.24-6.15-3.48-8.4Z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Плавное появление секций при прокрутке.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, section > h2, .card').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+  // Hero показываем сразу.
+  document.querySelectorAll('#hero .chip, #hero h1, #hero p, #hero .btn-gold, #hero .btn-ghost, #hero div:last-child').forEach(el => el.classList.add('in'));
+</script>
+</body>
+</html>
