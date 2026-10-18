@@ -21,6 +21,7 @@
     --muted:#8b93a1;
   }
   *{-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth; scroll-padding-top:80px}
   body{
     background:var(--bg);
     color:#e8ebf0;
@@ -31,11 +32,12 @@
   .bg-grid{
     position:fixed; inset:0; z-index:-2;
     background-image:
-      radial-gradient(900px 500px at 50% -10%, rgba(245,181,68,.14), transparent 60%),
+      radial-gradient(1100px 620px at 50% -12%, rgba(245,181,68,.15), transparent 62%),
       linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
     background-size:100% 100%, 46px 46px, 46px 46px;
     mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 95%);
+    -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 55%, transparent 95%);
   }
   .bg-glow{
     position:fixed; z-index:-1; pointer-events:none;
@@ -102,9 +104,29 @@
   .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;animation:pulseDot 2s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
   .float{animation:float 5.5s ease-in-out infinite}
+
+  /* Навигация в шапке */
+  .nav-link{
+    position:relative; font-size:13.5px; color:var(--muted);
+    transition:color .25s ease; padding:.25rem 0;
+  }
+  .nav-link::after{
+    content:""; position:absolute; left:0; bottom:0; height:1.5px; width:0;
+    background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
+    transition:width .3s ease;
+  }
+  .nav-link:hover{color:#e8ebf0}
+  .nav-link:hover::after{width:100%}
+
+  /* Карта */
+  .map-frame{
+    border:1px solid var(--border); border-radius:20px; overflow:hidden;
+    background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important; transition:none!important}
     .reveal{opacity:1; transform:none}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
@@ -115,40 +137,61 @@
 
 <!-- ================= ШАПКА ================= -->
 <header class="glass sticky top-0 z-50">
-  <div class="mx-auto max-w-md px-4 h-16 flex items-center justify-between">
-    <a href="#hero" class="flex items-center gap-2.5">
-      <span class="w-9 h-9 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 font-extrabold text-[15px] logo-mark">NE</span>
-      <span class="leading-none">
-        <span class="block text-[13px] font-bold tracking-[.18em] text-white">DETAILING</span>
-        <span class="block text-[9.5px] tracking-[.34em] text-[#8b93a1] mt-0.5">NE STUDIO</span>
-      </span>
-    </a>
-    <a href="https://wa.me/79621450949" target="_blank" rel="noopener"
-       class="btn-gold text-[12px] px-4 py-2 rounded-xl whitespace-nowrap shine">Записаться</a>
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="h-16 md:h-[72px] flex items-center justify-between">
+
+      <!-- Логотип -->
+      <a href="#hero" class="flex items-center gap-2.5 shrink-0">
+        <span class="w-9 h-9 rounded-xl grid place-items-center border border-[#1f242d] bg-white/5 font-extrabold text-[15px] logo-mark">NE</span>
+        <span class="leading-none">
+          <span class="block text-[13px] font-bold tracking-[.18em] text-white">DETAILING</span>
+          <span class="block text-[9.5px] tracking-[.34em] text-[#8b93a1] mt-0.5">NE STUDIO</span>
+        </span>
+      </a>
+
+      <!-- Навигация: только десктоп -->
+      <nav class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#why" class="nav-link">Преимущества</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <!-- Правая часть -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <!-- Телефон: только десктоп -->
+        <a href="tel:+79621450949" class="hidden lg:flex items-center gap-2 text-[13px] text-[#8b93a1] hover:text-white transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          +7 962 145-09-49
+        </a>
+        <!-- WhatsApp-кнопка -->
+        <a href="https://wa.me/79621450949" target="_blank" rel="noopener"
+           class="btn-gold text-[12px] md:text-[13px] px-3.5 md:px-5 py-2 md:py-2.5 rounded-xl whitespace-nowrap shine">Записаться</a>
+      </div>
+    </div>
   </div>
 </header>
 
-<main class="mx-auto max-w-md px-4">
+<main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
   <!-- ================= HERO ================= -->
-  <section id="hero" class="pt-10 pb-12 text-center">
+  <section id="hero" class="pt-10 md:pt-20 pb-12 md:pb-20 text-center">
     <span class="chip mx-auto"><span class="dot"></span> Приём заявок ежедневно 9:00–21:00</span>
 
-    <h1 class="mt-6 text-[34px] leading-[1.12] font-extrabold tracking-tight">
-      Премиальный уход<br>за вашим <span class="grad-text">автомобилем</span>
+    <h1 class="mt-6 md:mt-8 text-[34px] md:text-5xl lg:text-6xl leading-[1.1] md:leading-[1.06] font-extrabold tracking-tight max-w-4xl mx-auto">
+      Премиальный уход<br class="hidden sm:block"> за вашим <span class="grad-text">автомобилем</span>
     </h1>
 
-    <p class="mt-4 text-[15px] leading-relaxed text-[#8b93a1]">
-      детейлинг-студия полного цикла в Брянске. Восстанавливаем блеск, защищаем кузов
+    <p class="mt-4 md:mt-6 text-[15px] md:text-[17px] leading-relaxed text-[#8b93a1] max-w-2xl mx-auto">
+      Детейлинг-студия полного цикла в Брянске. Восстанавливаем блеск, защищаем кузов
       и делаем салон идеальным.
     </p>
 
-    <div class="mt-7 flex flex-col gap-3">
-      <a href="https://wa.me/79621450949?text=%D0%A0%D0%B0%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%E0%B4%B8%20NE%20Detailing" target="_blank" rel="noopener"
+    <div class="mt-7 md:mt-9 flex flex-col gap-3 max-w-xs mx-auto">
+      <a href="https://wa.me/79621450949?text=%D0%A0%D0%B0%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%81%20NE%20Detailing" target="_blank" rel="noopener"
          class="btn-gold shine rounded-2xl py-4 text-[15px] font-semibold tracking-wide">
         Рассчитать стоимость в WhatsApp
       </a>
-      <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-3.5 text-[14px] font-medium text-[#e8ebf0]">
+      <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-3.5 text-[14px] font-medium text-[#e8ebf0] md:hidden">
         Позвонить: +7 962 145-09-49
       </a>
     </div>
@@ -160,11 +203,12 @@
   </section>
 
   <!-- ================= УСЛУГИ ================= -->
-  <section id="services" class="py-4">
+  <section id="services" class="py-4 md:py-10">
     <h2 class="text-[11px] font-semibold tracking-[.28em] text-[#8b93a1] text-center">УСЛУГИ</h2>
+    <p class="mt-3 text-center text-[13.5px] text-[#8b93a1]">Премиальные материалы и гарантия на все работы</p>
 
-    <div class="mt-6 space-y-3">
-      <article class="card p-5">
+    <div class="mt-6 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <article class="card p-5 md:p-6">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h3 class="text-[16.5px] font-semibold">Полировка кузова</h3>
@@ -176,7 +220,7 @@
         <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">7 000 ₽</span></p>
       </article>
 
-      <article class="card p-5">
+      <article class="card p-5 md:p-6">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h3 class="text-[16.5px] font-semibold">Бронеплёнка</h3>
@@ -188,7 +232,7 @@
         <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">15 000 ₽</span></p>
       </article>
 
-      <article class="card p-5">
+      <article class="card p-5 md:p-6">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h3 class="text-[16.5px] font-semibold">Керамика 9H</h3>
@@ -200,7 +244,7 @@
         <p class="text-[13px] text-[#8b93a1]">от <span class="text-[19px] font-bold text-white">8 000 ₽</span></p>
       </article>
 
-      <article class="card p-5">
+      <article class="card p-5 md:p-6">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h3 class="text-[16.5px] font-semibold">Химчистка салона</h3>
@@ -215,24 +259,26 @@
   </section>
 
   <!-- ================= ПРЕИМУЩЕСТВА ================= -->
-  <section id="why" class="py-14">
+  <section id="why" class="py-10 md:py-16">
     <h2 class="text-[11px] font-semibold tracking-[.28em] text-[#8b93a1] text-center">ПОЧЕМУ МЫ</h2>
-    <div class="mt-6 space-y-3">
-      <div class="card p-5 flex gap-4">
+    <p class="mt-3 text-center text-[13.5px] text-[#8b93a1]">Работаем на результат, а не на «галочку»</p>
+
+    <div class="mt-6 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div class="card p-5 md:p-6 flex md:flex-col gap-4">
         <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">🧪</span>
         <div>
           <h3 class="text-[15.5px] font-semibold">Премиальная автохимия</h3>
           <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">Профессиональные составы от ведущих брендов, безопасные для лака и ткани.</p>
         </div>
       </div>
-      <div class="card p-5 flex gap-4">
+      <div class="card p-5 md:p-6 flex md:flex-col gap-4">
         <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">📜</span>
         <div>
           <h3 class="text-[15.5px] font-semibold">Гарантия на работы</h3>
           <p class="mt-1.5 text-[13px] leading-relaxed text-[#8b93a1]">До 24 месяцев на покрытия. Если результат не устроит — переделаем бесплатно.</p>
         </div>
       </div>
-      <div class="card p-5 flex gap-4">
+      <div class="card p-5 md:p-6 flex md:flex-col gap-4">
         <span class="shrink-0 w-11 h-11 rounded-xl grid place-items-center border border-[#1f242d] bg-gradient-to-br from-white/[.07] to-transparent text-[19px]">🎓</span>
         <div>
           <h3 class="text-[15.5px] font-semibold">Сертификаты мастеров</h3>
@@ -243,37 +289,75 @@
   </section>
 
   <!-- ================= КОНТАКТЫ ================= -->
-  <section id="contacts" class="py-6 pb-14">
-    <div class="card p-7 text-center relative overflow-hidden">
-      <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-56 h-56 bg-glow glow-1" style="filter:blur(50px);opacity:.5"></div>
-      <div class="relative">
-        <h2 class="text-[22px] font-extrabold leading-tight">Готовы вернуть<br>вашему авто <span class="grad-text">блеск?</span></h2>
-        <p class="mt-3 text-[13.5px] text-[#8b93a1] leading-relaxed">Приедьте на осмотр — оценим состояние кузова и назовём точную стоимость.</p>
-        <div class="mt-6 flex flex-col gap-3">
-          <a href="https://wa.me/79621450949?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D0%B2%20NE%20Detailing" target="_blank" rel="noopener"
-             class="btn-gold shine rounded-2xl py-4 text-[15px] font-semibold">Написать в WhatsApp</a>
-          <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-3.5 text-[14px] font-medium">Позвонить</a>
+  <section id="contacts" class="py-6 md:py-12 pb-14 md:pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-5">
+
+      <!-- Левая карточка: текст + кнопки -->
+      <div class="card p-7 md:p-9 lg:col-span-3 relative overflow-hidden text-center lg:text-left">
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full" style="background:radial-gradient(circle, rgba(224,168,58,.18), transparent 65%);filter:blur(50px)"></div>
+        <div class="relative">
+          <h2 class="text-[24px] md:text-[32px] font-extrabold leading-tight">Готовы вернуть<br class="hidden sm:block"> вашему авто <span class="grad-text">блеск?</span></h2>
+          <p class="mt-3 md:mt-4 text-[13.5px] md:text-[15px] text-[#8b93a1] leading-relaxed max-w-md mx-auto lg:mx-0">Приедьте на осмотр — оценим состояние кузова и назовём точную стоимость. Без обязательств.</p>
+
+          <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 max-w-xs mx-auto lg:mx-0 lg:max-w-none">
+            <a href="https://wa.me/79621450949?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D0%B2%20NE%20Detailing" target="_blank" rel="noopener"
+               class="btn-gold shine rounded-2xl py-4 text-[15px] font-semibold flex-1 whitespace-nowrap">Написать в WhatsApp</a>
+            <a href="tel:+79621450949" class="btn-ghost rounded-2xl py-4 text-[14px] font-medium flex-1 whitespace-nowrap">Позвонить</a>
+          </div>
+
+          <div class="mt-6 md:mt-8 pt-5 border-t border-[#1f242d] grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+            <div class="flex items-start gap-2.5">
+              <svg class="shrink-0 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <p class="text-[12.5px] text-[#8b93a1]">Адрес</p>
+                <p class="text-[13.5px] font-medium">г. Брянск, ул. Флотская, 111</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg class="shrink-0 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f5b544" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div>
+                <p class="text-[12.5px] text-[#8b93a1]">Режим работы</p>
+                <p class="text-[13.5px] font-medium">Ежедневно 9:00–21:00</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mt-6 pt-5 border-t border-[#1f242d] space-y-1.5">
-          <p class="text-[13px] text-[#8b93a1]">г. Брянск, ул. Флотская, 111</p>
-          <p class="text-[13px] text-[#8b93a1]">Ежедневно 9:00–21:00</p>
-        </div>
+      </div>
+
+      <!-- Правая карточка: карта -->
+      <div class="map-frame lg:col-span-2 min-h-[220px] lg:min-h-full">
+        <iframe
+          title="NE Detailing на карте"
+          src="https://yandex.ru/map-widget/v1/?text=%D0%91%D1%80%D1%8F%D0%BD%D1%81%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A4%D0%BB%D0%BE%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2C%20111&z=17"
+          width="100%" height="100%" loading="lazy"
+          style="border:0; display:block; min-height:220px; filter:invert(.92) hue-rotate(180deg) saturate(.55) contrast(.9);"
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
 </main>
 
 <!-- ================= ПОДВАЛ ================= -->
-<footer class="border-t border-[#1f242d] py-8">
-  <div class="mx-auto max-w-md px-4 text-center">
-    <p class="text-[11px] font-bold tracking-[.22em] text-[#8b93a1]">NE DETAILING</p>
-    <p class="mt-2 text-[11px] text-[#5b6270]">© <span id="yr"></span> NE Detailing · Брянск</p>
+<footer class="border-t border-[#1f242d] py-8 md:py-10">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-center md:text-left">
+        <p class="text-[11px] font-bold tracking-[.22em] text-[#8b93a1]">NE DETAILING</p>
+        <p class="mt-2 text-[11px] text-[#5b6270]">© <span id="yr"></span> NE Detailing · Брянск</p>
+      </div>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#why" class="nav-link">Преимущества</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <a href="tel:+79621450949" class="text-[12.5px] text-[#8b93a1] hover:text-white transition-colors">+7 962 145-09-49</a>
+    </div>
   </div>
 </footer>
 
-<!-- Плавающая кнопка WhatsApp -->
+<!-- Плавающая кнопка WhatsApp: на десктопе скрываем (кнопки уже в шапке и контактах) -->
 <a href="https://wa.me/79621450949" target="_blank" rel="noopener" aria-label="WhatsApp"
-   class="fixed bottom-5 right-4 z-50 w-14 h-14 rounded-full grid place-items-center float"
+   class="md:hidden fixed bottom-5 right-4 z-50 w-14 h-14 rounded-full grid place-items-center float"
    style="background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 14px 34px -12px rgba(37,211,102,.75)">
   <svg width="27" height="27" viewBox="0 0 24 24" fill="#fff"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.18 4.22-9.4 9.42-9.4 2.51 0 4.87.98 6.65 2.76a9.35 9.35 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.41 9.4ZM20.52 3.45A11.75 11.75 0 0 0 12.04 0C5.5 0 .17 5.33.17 11.87c0 2.09.55 4.13 1.59 5.93L.07 24l6.35-1.66a11.85 11.85 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.24-6.15-3.48-8.4Z"/></svg>
 </a>
@@ -284,13 +368,15 @@
   // Плавное появление секций при прокрутке.
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal, section > h2, .card').forEach(el => {
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('section .card, section .map-frame, section h2, section > div > p').forEach(el => {
     el.classList.add('reveal');
     io.observe(el);
   });
+
   // Hero показываем сразу.
-  document.querySelectorAll('#hero .chip, #hero h1, #hero p, #hero .btn-gold, #hero .btn-ghost, #hero div:last-child').forEach(el => el.classList.add('in'));
+  document.querySelectorAll('#hero .chip, #hero h1, #hero p, #hero .btn-gold, #hero .btn-ghost').forEach(el => el.classList.add('in'));
 </script>
 </body>
 </html>
